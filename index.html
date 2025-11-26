@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Barbershop - Vardø</title>
+    <!-- Tailwind CDN for quick layout (replace with your build for production) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-video {
+            object-fit: cover;
+            height: 60vh;
+            width: 100%;
+        }
+        
+        .glass {
+            background: rgba(17, 17, 17, 0.767);
+            backdrop-filter: blur(6px);
+        }
+        
+        .price-table th,
+        .price-table td {
+            padding: 0.6rem;
+        }
+        
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 60;
+        }
+        
+        .text-3xl {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-900 text-neutral-100 font-sans">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-black/50 glass backdrop-blur p-4">
+        <div class="container mx-auto flex items-center justify-between">
+            <a class="text-2xl font-bold tracking-widest">BARBERSHOP</a>
+            <nav class="hidden md:flex gap-6">
+                <a href="#services" class="hover:underline">Tjenester</a>
+                <a href="#prices" class="hover:underline">Prices</a>
+
+                <a href="#gallery" class="hover:underline">Gallery</a>
+                <a href="#contacts" class="hover:underline">Contact</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="tel:+4791111001" class="md:inline-block hidden border px-3 py-1 rounded">+4791111001</a
+          >
+          <button
+            id="bookBtn"
+            class="bg-amber-500 text-black px-4 py-2 rounded font-semibold"
+          >
+            Bestill time
+          </button>
+          <button id="mobileMenuBtn" class="md:hidden">☰</button>
+        </div>
+      </div>
+      <!-- Mobile menu (simple) -->
+      <div id="mobileMenu" class="hidden md:hidden bg-black/70 p-4">
+        <a href="#services" class="block py-1">Tjenester</a>
+                <a href="#prices" class="block py-1">Prices</a>
+
+                <a href="#gallery" class="block py-1">Gallery</a>
+                <a href="#contacts" class="block py-1">Contact</a>
+            </div>
+    </header>
+
+    <!-- HERO with video background -->
+    <section class="relative overflow-hidden">
+        <video class="hero-video absolute inset-0 w-full h-full" autoplay muted loop playsinline>
+        <!-- Replace src with your hero video (mp4/webm) -->
+        <source src="assest\hero.mp4" type="video/mp4" />
+      </video>
+        <div class="relative container mx-auto p-8 md:p-16 flex items-center" style="height: 60vh">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-6xl font-extrabold">
+                    Premium frisørsalong
+                </h1>
+                <p class="mt-4 text-lg text-neutral-200">
+                    Atmosfære, opplevelse og oppmerksomhet på detaljer – alt for bildet ditt.
+                </p>
+                <div class="mt-6 flex gap-4">
+                    <button id="heroBook" class="bg-amber-500 text-black px-5 py-3 rounded font-semibold">
+              Registrer deg
+            </button>
+                    <a href="#services" class="border px-5 py-3 rounded">Tjenester</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats and intro -->
+    <section class="container mx-auto p-8 grid md:grid-cols-3 gap-6">
+        <div class="glass p-6 rounded">
+            <h3 class="text-2xl font-bold">Vår historie</h3>
+            <p class="mt-2 text-neutral-300">
+                Barbersalonger i vesten er en lukket herreklubb med dyr alkohol, sigarer og VIP-kunder. De bevarer den århundregamle historien til herrebarbersalonger. Den barske atmosfæren hjelper deg å glemme konvensjonene som oppstår når kvinner dukker opp. Menn går
+                til frisørsalonger for usensurert sosialisering og avslapning, med den ekstra bonusen av et velstelt skjegg og en stilig hårklipp.
+            </p>
+        </div>
+        <div class="glass p-6 rounded text-center">
+            <div class="text-3xl font-bold">25k+</div>
+            <div class="text-neutral-300">Kunder servert</div>
+        </div>
+        <div class="glass p-6 rounded text-center">
+            <div class="text-3xl font-bold">1000+</div>
+            <div class="text-neutral-300">Reviews</div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold mb-6">Våre tjenester</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Service card (clone as needed) -->
+            <article class="bg-neutral-800 p-6 rounded">
+                <h3 class="text-xl font-semibold">Profesjonell hårklipp</h3>
+                <p class="mt-2 text-neutral-300">
+                    Klassiske og moderne teknikker, individuell tilnærming.
+                </p>
+            </article>
+            <article class="bg-neutral-800 p-6 rounded">
+                <h3 class="text-xl font-semibold">Skjeggstell</h3>
+                <p class="mt-2 text-neutral-300">
+                    Styling, klipping og stell – alt for et velstelt utseende.
+                </p>
+            </article>
+            <article class="bg-neutral-800 p-6 rounded">
+                <h3 class="text-xl font-semibold">Royal Shave</h3>
+                <p class="mt-2 text-neutral-300">
+                    Tradisjonell barberhøvel og komfortabel prosedyre.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Prices -->
+    <section id="prices" class="container mx-auto p-8">
+        <h2 class="text-3xl font-bold mb-6">Price-list</h2>
+        <div class="overflow-auto">
+            <table class="w-full price-table bg-neutral-800 rounded">
+                <thead class="text-left">
+                    <tr>
+                        <th>Tjenester</th>
+                        <th>TOP</th>
+                        <th>PRO</th>
+                        <th>VIP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-t">
+                        <td class="font-medium p-3">Herreklipp</td>
+                        <td>300kr</td>
+                        <td>350kr</td>
+                        <td>400kr</td>
+                    </tr>
+                    <tr class="border-t">
+                        <td class="font-medium p-3">Hårklipp med saks</td>
+                        <td>350kr</td>
+                        <td>400kr</td>
+                        <td>450kr</td>
+                    </tr>
+                    <tr class="border-t">
+                        <td class="font-medium p-3">Hårklipp med klippemaskin</td>
+                        <td>200kr</td>
+                        <td>250kr</td>
+                        <td>300kr</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Team / Academy -->
+    <section id="academy" class="container mx-auto p-8 grid md:grid-cols-2 gap-6">
+        <div>
+            <h2 class="text-3xl font-bold">Teamet vårt</h2>
+            <div class="mt-4 grid sm:grid-cols-2 gap-4">
+                <div class="bg-neutral-800 p-4 rounded">
+                    <strong></strong>
+                    <div class="text-neutral-400">Top barber</div>
+                </div>
+                <div class="bg-neutral-800 p-4 rounded">
+                    <strong></strong>
+                    <div class="text-neutral-400">Pro barber</div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2 class="text-3xl font-bold">Academy</h2>
+            <p class="mt-2 text-neutral-300">
+                Nybegynner- og viderekomne kurs. Vis datoer og registreringsknapper..
+            </p>
+            <div class="mt-4 flex gap-3">
+                <a class="border px-4 py-2 rounded" href="#">Vis mer</a>
+                <a class="bg-amber-500 text-black px-4 py-2 rounded" href="#">Søk nå</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="container mx-auto p-8">
+      <h2 class="text-3xl font-bold mb-6">Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Use real images, here placeholders -->
+        <img
+          class="cursor-pointer rounded"
+          src="https://i.postimg.cc/9MrZXkbm/photo-2025-11-24-10-imresizer-(1).jpg"
+          onclick="openLightbox(this)"
+        />
+        <img
+          class="cursor-pointer rounded"
+          src="https://i.postimg.cc/x1nmN855/photo-2025-11-24-10-imresizer.jpg"
+          onclick="openLightbox(this)"
+        />
+
+        <img
+          class="cursor-pointer rounded"
+          src="https://i.postimg.cc/1zsRmN9Y/be7fefaa8437123d1de4adb1215610a5.jpg"
+          onclick="openLightbox(this)"
+        />
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contacts" class="container mx-auto p-8">
+      <h2 class="text-3xl font-bold mb-6">Contact</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-neutral-800 p-6 rounded">
+          <p>
+            <strong>Telefon:</strong>
+            <a href="tel: +4791111001">+47 91111001 </a>
+                </p>
+                <p class="mt-2"><strong>Address:</strong> Strandgata</p>
+                <p class="mt-2">
+                    <strong>Time:</strong> Søn-Tor 10:00–20:00, Fre-Lør 10:00–21:00
+                </p>
+            </div>
+            <form id="contactForm" class="bg-neutral-800 p-6 rounded space-y-3">
+                <input required name="name" placeholder="Your name" class="w-full p-3 rounded bg-neutral-900" />
+                <input required name="email" type="email" placeholder="E-post" class="w-full p-3 rounded bg-neutral-900" />
+                <textarea required name="message" placeholder="Message" class="w-full p-3 rounded bg-neutral-900"></textarea>
+                <button type="submit" class="bg-amber-500 text-black px-4 py-2 rounded">
+            Sende melding
+          </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black p-6 mt-8">
+        <div class="container mx-auto text-center text-neutral-400">
+            © 2025 Barbershop — All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Booking modal -->
+    <div id="bookingModal" class="hidden fixed inset-0 z-50 items-center justify-center">
+        <div class="absolute inset-0 bg-black/60" onclick="closeModal()"></div>
+        <div class="relative bg-neutral-900 w-full max-w-2xl rounded p-6 z-60">
+            <h3 class="text-2xl font-bold">Bestill time</h3>
+            <form id="bookingForm" class="mt-4 space-y-3">
+                <input name="name" required placeholder="Your name" class="w-full p-3 rounded bg-neutral-800" />
+                <input name="phone" required placeholder="Telefon" class="w-full p-3 rounded bg-neutral-800" />
+                <input name="date" type="date" required class="w-full p-3 rounded bg-neutral-800" />
+                <select name="service" class="w-full p-3 rounded bg-neutral-800">
+            <option>Herreklipp</option>
+            <option>Skjeggstell</option>
+          </select>
+                <div class="flex gap-3">
+                    <button type="submit" class="bg-amber-500 text-black px-4 py-2 rounded">
+              Sende
+            </button>
+                    <button type="button" onclick="closeModal()" class="border px-4 py-2 rounded">
+              Avbryt
+            </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+        mobileBtn ? .addEventListener("click", () =>
+            mobileMenu.classList.toggle("hidden")
+        );
+
+        // Booking modal
+        const bookBtn = document.getElementById("bookBtn");
+        const heroBook = document.getElementById("heroBook");
+        const modal = document.getElementById("bookingModal");
+
+        function openModal() {
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+        }
+
+        function closeModal() {
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+        }
+        bookBtn ? .addEventListener("click", openModal);
+        heroBook ? .addEventListener("click", openModal);
+
+        // Lightbox for gallery
+        function openLightbox(img) {
+            const src = img.dataset.full || img.src;
+            const box = document.createElement("div");
+            box.className = "lightbox";
+            box.innerHTML = `<img src="${src}" style="max-width:90%;max-height:90%;border-radius:8px" onclick="this.parentElement.remove()">`;
+            document.body.appendChild(box);
+        }
+        window.openLightbox = openLightbox;
+
+        // Contact form submission (placeholder)
+        document
+            .getElementById("contactForm") ?
+            .addEventListener("submit", async(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.target);
+                // TODO: replace URL with your server endpoint / email service
+                try {
+                    await fetch("/api/contact", {
+                        method: "POST",
+                        body: fd
+                    });
+                    alert("Message sent");
+                    e.target.reset();
+                } catch (err) {
+                    alert("Error 404");
+                }
+            });
+
+        // Booking form (placeholder)
+        document
+            .getElementById("bookingForm") ?
+            .addEventListener("submit", async(e) => {
+                e.preventDefault();
+                const fd = new FormData(e.target);
+                try {
+                    await fetch("/api/book", {
+                        method: "POST",
+                        body: fd
+                    });
+                    alert("Du har bestilt time , Vi vente på deg !");
+                    closeModal();
+                } catch (err) {
+                    alert("Error 404");
+                }
+            });
+    </script>
+</body>
+
+</html>
